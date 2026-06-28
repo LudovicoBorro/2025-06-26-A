@@ -26,6 +26,7 @@ class View(ft.UserControl):
         #ROW 1
         self._ddYear1 = ft.Dropdown(label="Year start", width=150)
         self._ddYear2 = ft.Dropdown(label="Year end", width=150)
+        self._controller.fillDDYears()
         self._btnBuildGraph = ft.ElevatedButton(text="Crea grafo", on_click=self._controller.handleBuildGraph)
         self._btnPrintDetails = ft.ElevatedButton(text="Stampa dettagli", on_click=self._controller.handlePrintDetails)
         row1 = ft.Row([self._ddYear1, self._ddYear2, self._btnBuildGraph, self._btnPrintDetails],
@@ -47,8 +48,8 @@ class View(ft.UserControl):
         self._page.controls.append(row3)
 
         # List View where the reply is printed
-        self._txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=False)
-        self._page.controls.append(self._txt_result)
+        self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=False)
+        self._page.controls.append(self.txt_result)
         self._page.update()
 
     @property
